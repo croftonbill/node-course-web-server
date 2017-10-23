@@ -13,7 +13,7 @@ hbs.registerHelper('getCurrentYear', () => {
 });
 
 app.get("/", (req,res) => {
-  res.send("<h1>Hello Express</h1>");
+  res.render("home.hbs");
 });
 
 app.get("/bad", (req, res) => {
@@ -24,6 +24,10 @@ app.get("/bad", (req, res) => {
 
 app.get("/billd", (req,res) => {
   res.render("billd", {myName: "Bill Desjarlais"});
+});
+
+app.get("/portfolios", (req,res) => {
+  res.render("portfolios", {myName: "Bill Desjarlais"});
 });
 
 app.listen(port, () => {
