@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 var app = express();
 app.set ("view engine", "hbs");
 app.use (express.static(__dirname + "public"));
+app.use("/images",express.static(__dirname + "/public/images"));
 
 hbs.registerPartials(__dirname + "/views/partials");
 hbs.registerHelper('getCurrentYear', () => {
@@ -28,6 +29,10 @@ app.get("/billd", (req,res) => {
 
 app.get("/portfolios", (req,res) => {
   res.render("portfolios", {myName: "Bill Desjarlais"});
+});
+
+app.get("/LakeTahoe", (req,res) => {
+  res.render("LakeTahoe", {myName: "Bill Desjarlais"});
 });
 
 app.listen(port, () => {
